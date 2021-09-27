@@ -1,0 +1,7 @@
+- Auto-Scaling
+- Manual Scaling
+- Auto-Healing
+- Node Resize
+- Patching
+- DR
+- 
