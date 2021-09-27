@@ -1975,8 +1975,9 @@
       "backendProtocol": "[if(or(greater(length(parameters('esHttpCertBlob')), 0), greater(length(parameters('esHttpCaCertBlob')), 0)), 'Https', 'Http')]"
     },
     "kibanaIpTemplates": {
-      "No": "empty/empty-kibana-ip-resources.json",
-      "Yes": "ips/kibana-ip-resources.json"
+      "Yes": "empty/empty-kibana-ip-resources.json",
+      "No": "ips/kibana-ip-resources.json",
+      "NoPublic": "ips/kibana-no-public-ip-resources.json"
     },
     "kibanaIpTemplateUrl": "[uri(parameters('_artifactsLocation'), concat(variables('kibanaIpTemplates')[variables('topologySettings').kibana], parameters('_artifactsLocationSasToken')))]"
   },
