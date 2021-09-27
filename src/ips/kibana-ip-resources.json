@@ -75,6 +75,7 @@
   ],
   "outputs": {
     "fqdn": {
+      "condition": "[equals(parameters('kibanaPublicIp'), 'Yes')]",
       "value": "[concat(variables('https'), reference(variables('publicIpName')).dnsSettings.fqdn, ':5601')]",
       "type": "string"
     }

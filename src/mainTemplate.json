@@ -2140,6 +2140,7 @@
             }
           },
           "kibanaIp": {
+            "condition": "[equals(parameters('kibanaPublicIp'), 'Yes')]",
             "value": "[reference('kibana-ip').outputs.fqdn.value]"
           },
           "sharedStorageAccount": {
