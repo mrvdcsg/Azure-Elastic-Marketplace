@@ -51,6 +51,17 @@
           "description": "The public IP address for Kibana"
       }
     },
+    "kibanaPublicIp": {
+      "type": "string",
+      "defaultValue": "Yes",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "metadata": {
+        "description": "Provision a public IP for Kibana machine"
+      }
+    },
     "sharedStorageAccount": {
       "type": "secureObject",
       "metadata": {
