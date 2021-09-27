@@ -1907,6 +1907,7 @@
       "vmSizeKibana": "[parameters('vmSizeKibana')]",
       "vmKibanaAcceleratedNetworking": "[parameters('vmKibanaAcceleratedNetworking')]",
       "kibana": "[parameters('kibana')]",
+      "kibanaPublicIp": "[parameters('kibanaPublicIp')]",
       "kibanaKeyBlob": "[parameters('kibanaKeyBlob')]",
       "kibanaKeyPassphrase": "[parameters('kibanaKeyPassphrase')]",
       "kibanaCertBlob": "[parameters('kibanaCertBlob')]",
