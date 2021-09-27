@@ -132,7 +132,6 @@
     },
     {
       "apiVersion": "2019-04-01",
-      "condition": "[equals(parameters('kibanaPublicIp'), 'Yes')]",
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('nicName')]",
       "location": "[parameters('location')]",
@@ -153,37 +152,6 @@
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpName'))]"
               },
-              "subnet": {
-                "id": "[variables('subnetId')]"
-              }
-            }
-          }
-        ],
-        "networkSecurityGroup": {
-          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('securityGroupName'))]"
-        }
-      }
-    },
-    {
-      "apiVersion": "2019-04-01",
-      "condition": "[equals(parameters('kibanaPublicIp'), 'No')]",
-      "type": "Microsoft.Network/networkInterfaces",
-      "name": "[variables('nicName')]",
-      "location": "[parameters('location')]",
-      "tags": {
-        "provider": "[toUpper(parameters('elasticTags').provider)]"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('securityGroupName'))]"
-      ],
-      "properties": {
-        "primary": true,
-        "enableAcceleratedNetworking": "[equals(parameters('acceleratedNetworking'), 'Yes')]",
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
               "subnet": {
                 "id": "[variables('subnetId')]"
               }

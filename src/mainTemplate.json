@@ -218,17 +218,6 @@
         "description": "Provision a machine with Kibana on it"
       }
     },
-    "kibanaPublicIp": {
-      "type": "string",
-      "defaultValue": "Yes",
-      "allowedValues": [
-        "Yes",
-        "No"
-      ],
-      "metadata": {
-        "description": "Provision a public IP for Kibana machine"
-      }
-    },
     "vmSizeKibana": {
       "type": "string",
       "defaultValue": "Standard_A2_v2",
@@ -1907,7 +1896,6 @@
       "vmSizeKibana": "[parameters('vmSizeKibana')]",
       "vmKibanaAcceleratedNetworking": "[parameters('vmKibanaAcceleratedNetworking')]",
       "kibana": "[parameters('kibana')]",
-      "kibanaPublicIp": "[parameters('kibanaPublicIp')]",
       "kibanaKeyBlob": "[parameters('kibanaKeyBlob')]",
       "kibanaKeyPassphrase": "[parameters('kibanaKeyPassphrase')]",
       "kibanaCertBlob": "[parameters('kibanaCertBlob')]",
@@ -1976,8 +1964,7 @@
     },
     "kibanaIpTemplates": {
       "Yes": "empty/empty-kibana-ip-resources.json",
-      "No": "ips/kibana-ip-resources.json",
-      "NoPublic": "ips/kibana-no-public-ip-resources.json"
+      "No": "ips/kibana-ip-resources.json"
     },
     "kibanaIpTemplateUrl": "[uri(parameters('_artifactsLocation'), concat(variables('kibanaIpTemplates')[variables('topologySettings').kibana], parameters('_artifactsLocationSasToken')))]"
   },
@@ -2141,7 +2128,6 @@
             }
           },
           "kibanaIp": {
-            "condition": "[equals(parameters('kibanaPublicIp'), 'Yes')]",
             "value": "[reference('kibana-ip').outputs.fqdn.value]"
           },
           "sharedStorageAccount": {
