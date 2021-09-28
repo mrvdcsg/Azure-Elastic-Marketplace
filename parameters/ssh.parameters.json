@@ -23,7 +23,6 @@
   "samlMetadataUri": { "value":""},
   "samlServiceProviderUri": { "value":""},
   "kibana":{"value":"Yes"},
-  "kibanaPublicIp":{"value":"Yes"},
   "vmSizeKibana":{"value":"Standard_DS1_v2"},
   "vmKibanaAcceleratedNetworking":{"value":"Default"},
   "kibanaCertBlob":{"value":""},
